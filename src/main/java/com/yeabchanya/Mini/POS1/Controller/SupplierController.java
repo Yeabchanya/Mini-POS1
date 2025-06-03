@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,17 +45,21 @@ public class SupplierController {
 
 	@GetMapping
 	public ResponseEntity<?> getAllSuppliers() {
-		List<SupplierDTO> list = supplierService.getAllSupplier()
-				.stream()
-				.map(Supplier -> SupplierMapper.INSTANCE.toSupplierDTO(Supplier))
-				.collect(Collectors.toList());
+		List<SupplierDTO> list = supplierService.getAllSupplier().stream()
+				.map(Supplier -> SupplierMapper.INSTANCE.toSupplierDTO(Supplier)).collect(Collectors.toList());
 		return ResponseEntity.ok(list);
 	}
 
 	@PutMapping("{id}")
-	public ResponseEntity<?> updateSupplierById(@PathVariable("id") Long id, @RequestBody SupplierDTO supplierDTO) {
+	public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody SupplierDTO supplierDTO) {
 		Supplier supplier = SupplierMapper.INSTANCE.toSupplier(supplierDTO);
 		supplier = supplierService.update(id, supplier);
 		return ResponseEntity.ok(SupplierMapper.INSTANCE.toSupplierDTO(supplier));
+	}
+
+	@DeleteMapping("{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+		Supplier deleSupplier = supplierService.delete(id);
+		return ResponseEntity.ok(SupplierMapper.INSTANCE.toSupplierDTO(deleSupplier));
 	}
 }

@@ -13,6 +13,8 @@ public interface SupplierService {
 	List<Supplier> getAllSupplier();
 	
 	Supplier update(Long supId, Supplier supUpdate);
+	
+	Supplier delete (Long id);
 
 }
 
