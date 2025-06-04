@@ -1,14 +1,1 @@
-spring:
-  datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: 
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-        hibernate:
-          dialect: org.hibernate.dialect.H2Dialect
-  h2:
-    console:
-      enabled: true
+
