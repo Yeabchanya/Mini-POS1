@@ -9,31 +9,33 @@ import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "tbImportdetails")
-//@IdClass(ImportDetailId.class)
+@IdClass(ImportDetailId.class) // <-- Add this
 public class ImportDetail {
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "ImpCode")
-    private Import impCode;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "ImpCode")
+	private Import impCode;
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "ProCode")
-    private Product productCode;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "ProCode")
+	private Product proCode;
 
-    @Column(name = "ProName", length = 100)
-    private String proName;
+	@Column(name = "ProName", length = 100)
+	private String proName;
 
-    @Column(name = "Qty")
-    private Long qty;
+	@Column(name = "Qty")
+	private Long qty;
 
-    @Column(name = "Price")
-    private BigDecimal price;
+	@Column(name = "Price")
+	private BigDecimal price;
 
-    @Column(name = "Amount")
-    private BigDecimal amount;
+	@Column(name = "Amount")
+	private BigDecimal amount;
 }

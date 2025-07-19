@@ -3,10 +3,6 @@ package com.spring.boot.Mini.POS.System.Management.DTO;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.spring.boot.Mini.POS.System.Management.Entity.Product;
-import com.spring.boot.Mini.POS.System.Management.Entity.Staff;
-import com.spring.boot.Mini.POS.System.Management.Entity.Supplier;
-
 import lombok.Data;
 
 @Data
@@ -16,16 +12,15 @@ public class ImportProductDTO {
 
 	private Long staffId;
 
-	//private String fullName;
+	// private String fullName;
 
-	//private Supplier supplierId;
+	 private Long supplierId;
 
-	private String supplierName;
+	//private String supplierName;
 
-	
-	private Long productCode;
+	private Long proCode;
 
-	//private String proName;
+	// private String proName;
 
 	private Long qty;
 
